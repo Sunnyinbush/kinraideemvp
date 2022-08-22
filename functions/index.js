@@ -31,160 +31,119 @@ const reply = (bodyResponse) => {
           "text": "สวัสดีค้าบ เรา KinRaiDee(กินไรดี) จะมาช่วยเลือกร้านอาหารให้คุณ ",
         },
         {
-          "type": "bubble",
-          "hero": {
-            "type": "image",
-            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-            "size": "full",
-            "aspectRatio": "20:13",
-            "aspectMode": "cover",
-            "action": {
-              "type": "uri",
-              "label": "Line",
-              "uri": "https://linecorp.com/",
+          "type": "flex",
+          "altText": "this is a flex message",
+          "contents": {
+            "type": "bubble",
+            "hero": {
+              "type": "image",
+              "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+              "size": "full",
+              "aspectRatio": "20:13",
+              "aspectMode": "cover",
+              "action": {
+                "type": "uri",
+                "uri": "http://linecorp.com/",
+              },
             },
-          },
-          "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "Brown Cafe",
-                "weight": "bold",
-                "size": "xl",
-                "contents": [],
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "margin": "md",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
-                    "size": "sm",
-                  },
-                  {
-                    "type": "icon",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
-                    "size": "sm",
-                  },
-                  {
-                    "type": "icon",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
-                    "size": "sm",
-                  },
-                  {
-                    "type": "icon",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
-                    "size": "sm",
-                  },
-                  {
-                    "type": "icon",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png",
-                    "size": "sm",
-                  },
-                  {
-                    "type": "text",
-                    "text": "4.0",
-                    "size": "sm",
-                    "color": "#999999",
-                    "flex": 0,
-                    "margin": "md",
-                    "contents": [],
-                  },
-                ],
-              },
-              {
-                "type": "box",
-                "layout": "vertical",
-                "spacing": "sm",
-                "margin": "lg",
-                "contents": [
-                  {
-                    "type": "box",
-                    "layout": "baseline",
-                    "spacing": "sm",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "text": "Place",
-                        "size": "sm",
-                        "color": "#AAAAAA",
-                        "flex": 1,
-                        "contents": [],
-                      },
-                      {
-                        "type": "text",
-                        "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
-                        "size": "sm",
-                        "color": "#666666",
-                        "flex": 5,
-                        "wrap": true,
-                        "contents": [],
-                      },
-                    ],
-                  },
-                  {
-                    "type": "box",
-                    "layout": "baseline",
-                    "spacing": "sm",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "text": "Time",
-                        "size": "sm",
-                        "color": "#AAAAAA",
-                        "flex": 1,
-                        "contents": [],
-                      },
-                      {
-                        "type": "text",
-                        "text": "10:00 - 23:00",
-                        "size": "sm",
-                        "color": "#666666",
-                        "flex": 5,
-                        "wrap": true,
-                        "contents": [],
-                      },
-                    ],
-                  },
-                ],
-              },
-            ],
-          },
-          "footer": {
-            "type": "box",
-            "layout": "vertical",
-            "flex": 0,
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "button",
-                "action": {
-                  "type": "uri",
-                  "label": "CALL",
-                  "uri": "https://linecorp.com",
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "Brown Cafe",
+                  "weight": "bold",
+                  "size": "xl",
                 },
-                "height": "sm",
-                "style": "link",
-              },
-              {
-                "type": "button",
-                "action": {
-                  "type": "uri",
-                  "label": "WEBSITE",
-                  "uri": "https://linecorp.com",
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "margin": "lg",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "box",
+                      "layout": "baseline",
+                      "spacing": "sm",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "Place",
+                          "color": "#aaaaaa",
+                          "size": "sm",
+                          "flex": 1,
+                        },
+                        {
+                          "type": "text",
+                          "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
+                          "wrap": true,
+                          "color": "#666666",
+                          "size": "sm",
+                          "flex": 5,
+                        },
+                      ],
+                    },
+                    {
+                      "type": "box",
+                      "layout": "baseline",
+                      "spacing": "sm",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "Time",
+                          "color": "#aaaaaa",
+                          "size": "sm",
+                          "flex": 1,
+                        },
+                        {
+                          "type": "text",
+                          "text": "10:00 - 23:00",
+                          "wrap": true,
+                          "color": "#666666",
+                          "size": "sm",
+                          "flex": 5,
+                        },
+                      ],
+                    },
+                  ],
                 },
-                "height": "sm",
-                "style": "link",
-              },
-              {
-                "type": "spacer",
-                "size": "sm",
-              },
-            ],
+              ],
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "link",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "CALL",
+                    "uri": "https://linecorp.com",
+                  },
+                },
+                {
+                  "type": "button",
+                  "style": "link",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "WEBSITE",
+                    "uri": "https://linecorp.com",
+                  },
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [],
+                  "margin": "sm",
+                },
+              ],
+              "flex": 0,
+            },
           },
         },
 	  ],
