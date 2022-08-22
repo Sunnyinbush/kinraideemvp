@@ -1,24 +1,16 @@
+/* eslint-disable no-tabs */
+/* eslint-disable no-mixed-spaces-and-tabs */
 const functions = require("firebase-functions");
 const request = require("request-promise");
 
 const LINE_MESSAGING_API = "https://api.line.me/v2/bot/message";
 const LINE_HEADER = {
   "Content-Type": "application/json",
-  "Authorization": "Bearer xxxxx",
+  // eslint-disable-next-line max-len
+  "Authorization": "Bearer reGGOrpOZ5RafgV+VqQHiULKInLdOq4gTKa3npfHWNzorpMn/V85a7axufVRJzmHvhxlGAuJ9wAqI6NMGIHjdL1yMqoFkR3JwoAHrTbNnqiI91pFvfp/AWgnOQCMk2vWEBvbGLgT4POpr+nZOye9ewdB04t89/1O/w1cDnyilFU=",
 };
 
-exports.LineBot = functions.https.onRequest((req, res) => {
-  res.send("Hi, we're KinRaiDee!");
-});
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
-
-exports.LineBot = functions.https.onRequest((req, res) => {
+exports.LineBot = functions.https.onRequest((req, _res) => {
   if (req.body.events[0].message.type !== "text") {
     return;
   }
@@ -37,7 +29,7 @@ const reply = (bodyResponse) => {
           type: "text",
           text: bodyResponse.events[0].message.text,
         },
-      ],
+	  ],
     }),
   });
 };
