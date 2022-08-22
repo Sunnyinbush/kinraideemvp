@@ -36,13 +36,15 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    flex_message = FlexSendMessage(
-        type = 'flex',
-        alt_text='hello',
-        contents=json.loads(flex_message_json)
-)
-    message = TextSendMessage(text=event.message.text)
-    line_bot_api.reply_message(event.reply_token, flex_message)
+    triggerwords = ['กินอะไรดี','กินไรดี']
+    if event.message.text in triggerwords:
+        flex_message = FlexSendMessage(
+            type = 'flex',
+            alt_text='hello',
+            contents=json.loads(flex_message_json)
+    )
+        message = TextSendMessage(text=event.message.text)
+        line_bot_api.reply_message(event.reply_token, flex_message)
 
 import os
 if __name__ == "__main__":
