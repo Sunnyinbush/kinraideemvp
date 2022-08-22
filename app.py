@@ -10,7 +10,7 @@ from linebot.models import *
 
 import json
 f = open('restaurant1.json')
-flex_message = json.load(f)
+message = json.load(f)
 
 app = Flask(__name__)
 
@@ -39,12 +39,9 @@ def handle_message(event):
     flex_message = FlexSendMessage(
         type = 'flex',
         alt_text='hello',
-        contents= flex_message
+        contents= message
 )
     message = TextSendMessage(text=event.message.text)
     line_bot_api.reply_message(event.reply_token, flex_message)
 
-import os
-if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+
