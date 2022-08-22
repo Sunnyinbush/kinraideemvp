@@ -1,3 +1,4 @@
+flex_message_json = """
 {
     "type": "bubble",
     "hero": {
@@ -110,3 +111,4 @@
       "flex": 0
     }
   }
+  """
