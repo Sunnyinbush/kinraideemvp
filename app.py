@@ -8,11 +8,7 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
-from restaurant1 import flex_message_json_template
-
 from routeprocess import *
-
-import json
 
 app = Flask(__name__)
 
@@ -38,15 +34,8 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    triggerwords = ['กินอะไรดี','กินไรดี']
-    if event.message.text in triggerwords:
-        flex_message = FlexSendMessage(
-            type = 'flex',
-            alt_text='CU iCanteen',
-            contents=json.loads(flex_message_json_template)
-    )
-        message = TextSendMessage(text=event.message.text)
-        line_bot_api.reply_message(event.reply_token, flex_message)
+    flex_message = backendprocess(event)
+    line_bot_api.reply_message(event.reply_token, flex_message)
 
 import os
 if __name__ == "__main__":
