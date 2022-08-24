@@ -43,7 +43,7 @@ flex_message_json_template = """
               {
                 "type": "text",
                 "text": "Faculty of Engineering",
-                "wrap": True,
+                "wrap": true,
                 "color": "#666666",
                 "size": "sm",
                 "flex": 5
@@ -65,7 +65,7 @@ flex_message_json_template = """
               {
                 "type": "text",
                 "text": "10:00 - 23:00",
-                "wrap": True,
+                "wrap": true,
                 "color": "#666666",
                 "size": "sm",
                 "flex": 5
