@@ -1,21 +1,24 @@
 import random
 import json
-from linebot import (
-    LineBotApi, WebhookHandler
-)
-from linebot.exceptions import (
-    InvalidSignatureError
-)
+
 from linebot.models import *
 
-from restaurant1 import flex_message_json_template
+from jsonstorage import *
 
-def backendprocess(event):
-    triggerwords = ['กินอะไรดี','กินไรดี']
-    if event.message.text in triggerwords:
+def backendprocess(inputword):
+    triggerwords = ['กินอะไรดี','กินไรดี', 'kinraidee', 'KinRaiDee', 'Kinraidee']
+#have some random function to select restaurant
+
+    if inputword in triggerwords:
         flex_message = FlexSendMessage(
             type = 'flex',
             alt_text='CU iCanteen',
-            contents=json.loads(flex_message_json_template)
+            contents=json.loads(flex_message_json_example)
     )
     return flex_message
+
+def randomselectrestaurant(place, list):
+    pass
+
+def convertjsontostring(json):
+    return json.dumps(json)
