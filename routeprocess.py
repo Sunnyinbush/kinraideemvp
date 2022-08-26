@@ -54,3 +54,6 @@ def convertjsontostring(restaurant):
     #open time
     final_json['body']['contents'][1]['contents'][1]['contents'][1]['text'] = restaurant[4]
     return final_json
+
+backendprocess('kinraidee')
+backendprocess('example')
