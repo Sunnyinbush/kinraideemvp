@@ -10,9 +10,10 @@ def backendprocess(inputword):
     triggerwords = ['กินอะไรดี','กินไรดี', 'kinraidee', 'KinRaiDee', 'Kinraidee']
     example_message = ['คำตัวอย่าง','example']
     #have some random function to select restaurant
+    payload = randomselectrestaurant()
+    json_payload = json.dumps(payload)
     if inputword in triggerwords:
-        payload = randomselectrestaurant()
-        json_payload = json.dumps(payload)
+        print(json.loads(json_payload))
         flex_message = FlexSendMessage(
             type = 'flex',
             alt_text=payload["body"]["contents"][0]["text"],
@@ -26,6 +27,7 @@ def backendprocess(inputword):
             alt_text='CU iCanteen',
             contents=json.loads(flex_message_json_example)
     )
+    print("Test", json.loads(json_payload) == json.loads(flex_message_json_example))
     return flex_message
 
 def randomselectrestaurant():
@@ -55,4 +57,3 @@ def convertjsontostring(restaurant):
     return final_json
 
 backendprocess('kinraidee')
-backendprocess('example')

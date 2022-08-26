@@ -1,3 +1,4 @@
+import json
 flex_message_json_example = """
 {
   "type": "bubble",
@@ -225,3 +226,6 @@ flex_message_json_template = {
     "flex": 0
   }
 }
+
+json_payload = json.dumps(flex_message_json_template)
+print(flex_message_json_example == json.loads(json_payload))
