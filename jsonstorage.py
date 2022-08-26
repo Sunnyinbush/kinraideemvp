@@ -1,5 +1,5 @@
-import json
-flex_message_json_example = {
+flex_message_json_example = '''
+{
   "type": "bubble",
   "hero": {
     "type": "image",
@@ -111,7 +111,7 @@ flex_message_json_example = {
     "flex": 0
   }
 }
-
+'''
 flex_message_json_template = {
   "type": "bubble",
   "hero": {
@@ -225,5 +225,3 @@ flex_message_json_template = {
   }
 }
 
-json_payload = json.dumps(flex_message_json_template)
-print(flex_message_json_example == json.loads(json_payload))

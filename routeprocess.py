@@ -6,37 +6,18 @@ from linebot.models import *
 
 from jsonstorage import *
 
-def backendprocess(inputword):
-    triggerwords = ['กินอะไรดี','กินไรดี', 'kinraidee', 'KinRaiDee', 'Kinraidee']
-    example_message = ['คำตัวอย่าง','example']
-    #have some random function to select restaurant
-    payload = randomselectrestaurant()
-    json_payload = json.dumps(payload)
-    if inputword in triggerwords:
-        flex_message = FlexSendMessage(
-            type = 'flex',
-            alt_text=payload["body"]["contents"][0]["text"],
-            contents=json.loads(json_payload)
-    )
-        
-    elif inputword in example_message:
-        flex_message = FlexSendMessage(
-            type = 'flex',
-            alt_text='CU iCanteen',
-            contents=json.loads(flex_message_json_example)
-    )
-    return flex_message
-
 def randomselectrestaurant():
     #open csv file as list
-    with open('restaurantlist.csv', 'r') as datafile:
-        data = csv.reader(datafile, delimiter=';')
-        header = next(data)
-        table = [row for row in data]
+    randomselectrestaurant.var = open("restaurantlist.csv", "w")
+    # with open('restaurantlist.csv', 'r') as datafile:
+    data = csv.reader(randomselectrestaurant.var, delimiter=';')
+    header = next(data)
+    table = [row for row in data]
     #random select restaurant
     choice = random.choice(table)
     randomrestaurant = choice[0].split(',')
     post_data = convertjsontostring(randomrestaurant)
+    randomselectrestaurant.var.close()
     return post_data
 
 def convertjsontostring(restaurant):
@@ -52,3 +33,28 @@ def convertjsontostring(restaurant):
     #open time
     final_json['body']['contents'][1]['contents'][1]['contents'][1]['text'] = restaurant[4]
     return final_json
+
+def backendprocess(inputword):
+    triggerwords = ['กินอะไรดี','กินไรดี', 'kinraidee', 'KinRaiDee', 'Kinraidee']
+    example_message = ['คำตัวอย่าง','example']
+    #have some random function to select restaurant
+    if inputword in triggerwords:
+        payload = randomselectrestaurant()
+        json_payload = json.dumps(payload,randomselectrestaurant.var)
+        flex_message = FlexSendMessage(
+            type = 'flex',
+            alt_text=payload["body"]["contents"][0]["text"],
+            contents=json.loads(json_payload)
+    )
+        
+    elif inputword in example_message:
+        print(json.loads(flex_message_json_example))
+        flex_message = FlexSendMessage(
+            type = 'flex',
+            alt_text='CU iCanteen',
+            contents=json.loads(flex_message_json_example)
+    )
+    return flex_message
+
+backendprocess('kinraidee')
+backendprocess('example')
