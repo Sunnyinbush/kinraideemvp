@@ -232,4 +232,3 @@ flex_message_json_template = {
     "flex": 0
   }
 }
-print(flex_message_json_example)

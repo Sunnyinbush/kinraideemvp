@@ -1,4 +1,3 @@
-from operator import index
 import random
 import json
 import csv
@@ -13,12 +12,16 @@ def backendprocess(inputword):
     #have some random function to select restaurant
     if inputword in triggerwords:
         payload = randomselectrestaurant()
+        json_payload = json.dumps(payload)
+        print(json.loads(json_payload))
         flex_message = FlexSendMessage(
             type = 'flex',
             alt_text=payload["body"]["contents"][0]["text"],
-            contents=json.loads(payload)
+            contents=json.loads(json_payload)
     )
+        
     elif inputword in example_message:
+        print(json.loads(flex_message_json_example))
         flex_message = FlexSendMessage(
             type = 'flex',
             alt_text='CU iCanteen',
@@ -50,7 +53,4 @@ def convertjsontostring(restaurant):
     final_json['body']['contents'][1]['contents'][0]['contents'][1]['text'] = restaurant[3]
     #open time
     final_json['body']['contents'][1]['contents'][1]['contents'][1]['text'] = restaurant[4]
-    final_json = json.dumps(final_json)
     return final_json
-
-randomselectrestaurant()
