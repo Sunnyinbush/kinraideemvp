@@ -1,5 +1,7 @@
+from operator import index
 import random
 import json
+import csv
 
 from linebot.models import *
 
@@ -13,7 +15,7 @@ def backendprocess(inputword):
         payload = randomselectrestaurant()
         flex_message = FlexSendMessage(
             type = 'flex',
-            alt_text=payload["body"]["content"]["text"],
+            alt_text=payload["body"]["contents"]["text"],
             contents=json.loads(payload)
     )
     elif inputword in example_message:
@@ -26,10 +28,28 @@ def backendprocess(inputword):
 
 def randomselectrestaurant():
     #open csv file as list
-    with open('restaurant.csv', 'r') as csvfile:
-        restaurantlist = csvfile.readlines()
+    with open('restaurantlist.csv', 'r') as datafile:
+        data = csv.reader(datafile, delimiter=';')
+        header = next(data)
+        table = [row for row in data]
     #random select restaurant
-    randomrestaurant = random.choice(restaurantlist)
+    choice = random.choice(table)
+    randomrestaurant = choice[0].split(',')
+    post_data = convertjsontostring(randomrestaurant)
+    return post_data
 
-def convertjsontostring(json):
-    return json.dumps(json)
+def convertjsontostring(restaurant):
+    final_json = flex_message_json_template
+    #photo url
+    final_json["hero"]["url"] = restaurant[0]
+    #photo link
+    final_json["hero"]["action"]["uri"] = restaurant[1]
+    #place title
+    final_json["body"]["contents"][0]["text"] = restaurant[2]
+    #location
+    final_json['body']['contents'][1]['contents'][0]['contents'][1]['text'] = restaurant[3]
+    #open time
+    final_json['body']['contents'][1]['contents'][1]['contents'][1]['text'] = restaurant[4]
+    return str(final_json)
+
+randomselectrestaurant()

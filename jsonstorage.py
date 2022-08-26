@@ -232,3 +232,7 @@ flex_message_json_template = {
     "flex": 0
   }
 }
+
+#print the value that reads "faculty of engineering"
+print(flex_message_json_template['body']['contents'][1]['contents'][0]['contents'][1]['text'])
+print(flex_message_json_template['body']['contents'][1]['contents'][1]['contents'][1]['text'])
