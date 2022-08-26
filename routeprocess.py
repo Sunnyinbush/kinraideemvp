@@ -15,8 +15,8 @@ def backendprocess(inputword):
         payload = randomselectrestaurant()
         flex_message = FlexSendMessage(
             type = 'flex',
-            alt_text=payload["body"]["contents"]["text"],
-            contents=json.loads(payload)
+            alt_text=payload["body"]["contents"][0]["text"],
+            contents=json.loads(str(payload))
     )
     elif inputword in example_message:
         flex_message = FlexSendMessage(
@@ -50,6 +50,6 @@ def convertjsontostring(restaurant):
     final_json['body']['contents'][1]['contents'][0]['contents'][1]['text'] = restaurant[3]
     #open time
     final_json['body']['contents'][1]['contents'][1]['contents'][1]['text'] = restaurant[4]
-    return str(final_json)
+    return final_json
 
 randomselectrestaurant()
