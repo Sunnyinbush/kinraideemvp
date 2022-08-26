@@ -1,6 +1,5 @@
 import json
-flex_message_json_example = """
-{
+flex_message_json_example = {
   "type": "bubble",
   "hero": {
     "type": "image",
@@ -44,7 +43,7 @@ flex_message_json_example = """
               {
                 "type": "text",
                 "text": "Faculty of Engineering",
-                "wrap": true,
+                "wrap": True,
                 "color": "#666666",
                 "size": "sm",
                 "flex": 5
@@ -66,7 +65,7 @@ flex_message_json_example = """
               {
                 "type": "text",
                 "text": "10:00 - 23:00",
-                "wrap": true,
+                "wrap": True,
                 "color": "#666666",
                 "size": "sm",
                 "flex": 5
@@ -112,7 +111,6 @@ flex_message_json_example = """
     "flex": 0
   }
 }
-"""
 
 flex_message_json_template = {
   "type": "bubble",
