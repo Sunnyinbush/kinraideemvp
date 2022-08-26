@@ -8,7 +8,7 @@ from jsonstorage import *
 
 def randomselectrestaurant():
     #open csv file as list
-    randomselectrestaurant.var = open("restaurantlist.csv", "w")
+    randomselectrestaurant.var = open("restaurantlist.csv", "r")
     # with open('restaurantlist.csv', 'r') as datafile:
     data = csv.reader(randomselectrestaurant.var, delimiter=';')
     header = next(data)
@@ -40,7 +40,8 @@ def backendprocess(inputword):
     #have some random function to select restaurant
     if inputword in triggerwords:
         payload = randomselectrestaurant()
-        json_payload = json.dumps(payload,randomselectrestaurant.var)
+        json_payload = json.dumps(payload)
+        print(json.loads(json_payload))
         flex_message = FlexSendMessage(
             type = 'flex',
             alt_text=payload["body"]["contents"][0]["text"],
@@ -54,7 +55,7 @@ def backendprocess(inputword):
             alt_text='CU iCanteen',
             contents=json.loads(flex_message_json_example)
     )
+    print(json.loads(json_payload) == json.loads(flex_message_json_example))
     return flex_message
 
 backendprocess('kinraidee')
-backendprocess('example')
