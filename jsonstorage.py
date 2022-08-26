@@ -117,14 +117,12 @@ flex_message_json_template = {
   "type": "bubble",
   "hero": {
     "type": "image",
-    #change url
     "url": "https://cucanteen.weebly.com/uploads/7/6/0/4/76046629/6141520_orig.jpg",
     "size": "full",
     "aspectRatio": "20:13",
     "aspectMode": "cover",
     "action": {
       "type": "uri",
-      #change url
       "uri": "http://linecorp.com/"
     }
   },
@@ -134,7 +132,6 @@ flex_message_json_template = {
     "contents": [
       {
         "type": "text",
-        #change title
         "text": "CU iCanteen",
         "weight": "bold",
         "size": "xl"
@@ -159,9 +156,8 @@ flex_message_json_template = {
               },
               {
                 "type": "text",
-                #change location
                 "text": "Faculty of Engineering",
-                "wrap": True,
+                "wrap": true,
                 "color": "#666666",
                 "size": "sm",
                 "flex": 5
@@ -182,9 +178,8 @@ flex_message_json_template = {
               },
               {
                 "type": "text",
-                #change time
                 "text": "10:00 - 23:00",
-                "wrap": True,
+                "wrap": true,
                 "color": "#666666",
                 "size": "sm",
                 "flex": 5
@@ -207,7 +202,6 @@ flex_message_json_template = {
         "action": {
           "type": "uri",
           "label": "Navigate",
-          #change navigation url
           "uri": "https://linecorp.com"
         }
       },
@@ -218,7 +212,6 @@ flex_message_json_template = {
         "action": {
           "type": "uri",
           "label": "Menu Website",
-          #change website url
           "uri": "https://linecorp.com"
         }
       },

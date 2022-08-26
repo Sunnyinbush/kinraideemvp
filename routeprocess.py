@@ -13,7 +13,6 @@ def backendprocess(inputword):
     if inputword in triggerwords:
         payload = randomselectrestaurant()
         json_payload = json.dumps(payload)
-        print(json.loads(json_payload))
         flex_message = FlexSendMessage(
             type = 'flex',
             alt_text=payload["body"]["contents"][0]["text"],
