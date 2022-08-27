@@ -55,6 +55,7 @@ def backendprocess(inputword):
             alt_text='CU iCanteen',
             contents=json.loads(flex_message_json_example)
     )
-    return flex_message
+    if flex_message != None:
+        return flex_message
 
 backendprocess('kinraidee')
