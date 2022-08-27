@@ -31,7 +31,7 @@ def convertjsontostring(restaurant):
     #location
     final_json['body']['contents'][1]['contents'][0]['contents'][1]['text'] = restaurant[3]
     #open time
-    final_json['body']['contents'][1]['contents'][1]['contents'][1]['text'] = restaurant[4]
+    final_json['body']['contents'][1]['contents'][0]['contents'][1]['text'] = restaurant[4]
     return final_json
 
 def backendprocess(inputword):
