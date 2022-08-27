@@ -37,6 +37,7 @@ def handle_message(event):
     flex_message = backendprocess(event.message.text)
     if flex_message != None:
         line_bot_api.reply_message(event.reply_token, flex_message)
+    
 
 import os
 if __name__ == "__main__":
