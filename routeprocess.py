@@ -34,6 +34,9 @@ def convertjsontostring(restaurant):
     final_json['body']['contents'][1]['contents'][1]['contents'][1]['text'] = restaurant[4].strip()
     return final_json
 
+def randomprocess(inputword):
+    pass
+
 def backendprocess(inputword):
     triggerwords = ['กินอะไรดี','กินไรดี', 'kinraidee', 'KinRaiDee', 'Kinraidee']
     example_message = ['คำตัวอย่าง','example']
