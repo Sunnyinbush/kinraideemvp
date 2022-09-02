@@ -6,7 +6,7 @@ from linebot.models import *
 
 from jsonstorage import *
 
-def backendprocess(inputword):
+def backendprocess(inputword,ids):
     randomtrigger = ['กินอะไรดี','กินไรดี', 'kinraidee', 'KinRaiDee', 'Kinraidee']
     example_message = ['คำตัวอย่าง','example']
     if inputword in randomtrigger:

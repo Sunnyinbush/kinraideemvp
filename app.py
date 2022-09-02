@@ -34,7 +34,7 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    flex_message = backendprocess(event.message.text)
+    flex_message = backendprocess(event.message.text,event.source)
     if flex_message != None:
         line_bot_api.reply_message(event.reply_token, flex_message)
     
