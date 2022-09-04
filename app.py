@@ -13,9 +13,9 @@ from routeprocess import *
 app = Flask(__name__)
 
 # Channel Access Token
-line_bot_api = LineBotApi('reGGOrpOZ5RafgV+VqQHiULKInLdOq4gTKa3npfHWNzorpMn/V85a7axufVRJzmHvhxlGAuJ9wAqI6NMGIHjdL1yMqoFkR3JwoAHrTbNnqiI91pFvfp/AWgnOQCMk2vWEBvbGLgT4POpr+nZOye9ewdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('vqiiCUBQCIZS0AJwgAunwn47nyFlDemUcsx9fr7SPXIQmXIlbg17N5hm0z+zo1Kcgges2TvHcKRoDuKBFiF0rAHuqE7TBQNYFlk1Q+Mkq2UyymeyWA249Abektv8lnES71cNhVO1LdOQiqsX/kx5ywdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
-handler = WebhookHandler('9c727591b56bf0a08a4a404605a97f2c')
+handler = WebhookHandler('ca2d11dc313463c0420dce1998398dfa')
 
 # callback 的 Post Request
 @app.route("/callback", methods=['POST'])
