@@ -112,6 +112,33 @@ flex_message_json_example = """
   }
 }
 """
+
+bubble_message_new_user = """
+{
+  "type": "template",
+  "altText": "this is a carousel template",
+  "template": {
+    "type": "carousel",
+    "imageSize": "cover",
+    "imageAspectRatio": "rectangle",
+    "columns": [
+      {
+        "title": "KinRaiDee Line Official ",
+        "text": "กดแอดไลน์เพื่อเริ่มใช้กินไรดีเลย",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "Add Line",
+            "uri": "https://lin.ee/OVliFVQ"
+          }
+        ],
+        "imageBackgroundColor": "#FFFFFF"
+      }
+    ]
+  }
+}
+
+"""
 flex_message_json_template = {
   "type": "bubble",
   "hero": {
