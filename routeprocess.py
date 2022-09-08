@@ -10,10 +10,11 @@ from jsonstorage import *
 def backendprocess(inputword,source):
     randomtrigger = ['กินอะไรดี','กินไรดี', 'kinraidee', 'KinRaiDee', 'Kinraidee']
     example_message = ['คำตัวอย่าง','example']
-    if source == None:
+    if source.userID == None:
         print(json.loads(bubble_message_new_user))
         flex_message = FlexSendMessage(
-            type = 'flex',
+            type = "template",
+            altText =  "this is a carousel template"
             contents=json.loads(bubble_message_new_user)
         )
     elif inputword in randomtrigger:
