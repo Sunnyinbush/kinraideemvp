@@ -51,12 +51,12 @@ def convertjsontostring(restaurant):
     final_json = flex_message_json_template
     #photo url
     final_json["hero"]["url"] = restaurant[0].strip()
-    #photo link
-    final_json["hero"]["action"]["uri"] = restaurant[1].strip()
     #place title
-    final_json["body"]["contents"][0]["text"] = restaurant[2].strip()
+    final_json["body"]["contents"][0]["text"] = restaurant[1].strip()
     #location
-    final_json['body']['contents'][1]['contents'][0]['contents'][1]['text'] = restaurant[3].strip()
+    final_json['body']['contents'][1]['contents'][0]['contents'][1]['text'] = restaurant[2].strip()
     #open time
-    final_json['body']['contents'][1]['contents'][1]['contents'][1]['text'] = restaurant[4].strip()
+    final_json['body']['contents'][1]['contents'][1]['contents'][1]['text'] = restaurant[3].strip()
     return final_json
+
+backendprocess("Kinraidee")
