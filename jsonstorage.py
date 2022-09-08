@@ -132,8 +132,7 @@ bubble_message_new_user = """
         "imageBackgroundColor": "#FFFFFF"
       }
     ]
-}
-
+  }
 """
 flex_message_json_template = {
   "type": "bubble",
