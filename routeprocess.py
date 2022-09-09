@@ -6,24 +6,28 @@ from linebot.models import *
 
 from jsonstorage import *
 
-def backendprocess(inputword):
+def backendprocess1(inputword):
     randomtrigger = ['กินอะไรดี','กินไรดี', 'kinraidee', 'KinRaiDee', 'Kinraidee']
-    example_message = ['คำตัวอย่าง','example']
     if inputword in randomtrigger:
-        flex_message = randomprocess()
-    elif inputword in example_message:
-        print(json.loads(flex_message_json_example))
-        flex_message = FlexSendMessage(
-            type = 'flex',
-            alt_text='CU iCanteen',
-            contents=json.loads(flex_message_json_example)
-    )
+        print(json.loads(quick_reply_temp))
+        quick_reply_message = QuickReplyButton(
+        text_message = TextSendMessage(
+            type =  "text", 
+            text = "โปรดเลือกสถานที่ที่คุณต้องการจะไป",
+            quick_reply = json.loads(QuickReply(quick_reply_temp)))
+        )
+    return quick_reply_message
+def backendprocess2(location):
+    randomtrigger_location = ['MBK','SAMYAN MITRTOWN', 'CHULA']
+    if location in randomtrigger_location:
+        file_to_access = f'restaurant_{location}.csv'
+        flex_message = randomprocess(file_to_access)
     else:
         flex_message = None
     return flex_message
 
-def randomprocess():
-    payload = randomselectrestaurant()
+def randomprocess(location_based):
+    payload = randomselectrestaurant(location_based)
     json_payload = json.dumps(payload)
     print(json.loads(json_payload))
     flex_message = FlexSendMessage(
@@ -33,9 +37,9 @@ def randomprocess():
     )
     return flex_message
 
-def randomselectrestaurant():
+def randomselectrestaurant(location_based):
     #open csv file as list
-    randomselectrestaurant.var = open("restaurantlist.csv", "r")
+    randomselectrestaurant.var = open(location_based, "r")
     # with open('restaurantlist.csv', 'r') as datafile:
     data = csv.reader(randomselectrestaurant.var, delimiter=';')
     header = next(data)

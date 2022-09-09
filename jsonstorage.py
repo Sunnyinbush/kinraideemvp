@@ -224,3 +224,37 @@ flex_message_json_template = {
     "flex": 0
   }
 }
+
+quick_reply_temp = {
+  "quickReply": { 
+    "items": [
+      {
+        "type": "action", 
+        "imageUrl": "https://www.mbkhotels.com/wp-content/uploads/2021/04/cropped-MBKno-slogan.png",
+        "action": {
+          "type": "message",
+          "label": "MBK",
+          "text": "MBK"
+        }
+      },
+      {
+        "type": "action",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/th/thumb/c/c1/Chulalongkorn_University_Official_Logo.svg/1200px-Chulalongkorn_University_Official_Logo.svg.png",
+        "action": {
+          "type": "message",
+          "label": "CHULALONGKORN",
+          "text": "CHULA"
+        }
+      },
+      {
+        "type": "action",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/th/thumb/c/c1/Chulalongkorn_University_Official_Logo.svg/1200px-Chulalongkorn_University_Official_Logo.svg.png",
+        "action": {
+          "type": "message",
+          "label": "SAMYAN MITRTOWN",
+          "text": "SAMYAN MITRTOWN"
+        }
+      }
+    ]
+  }
+}
