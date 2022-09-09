@@ -58,8 +58,10 @@ def convertjsontostring(restaurant):
     #open time
     final_json['body']['contents'][1]['contents'][1]['contents'][1]['text'] = restaurant[3].strip()
     #navigate button
-    if len(restaurant) > 3:
+    if len(restaurant) > 4:
         final_json['footer']['contents'][0]['action']['uri'] = restaurant[4].strip()
+    if len(restaurant) > 5:
+        final_json['footer']['contents'][1]['action']['uri'] = restaurant[5].strip()
     return final_json
 
 backendprocess("Kinraidee")
