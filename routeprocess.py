@@ -14,7 +14,7 @@ def backendprocess(inputword,source):
         print(json.loads(bubble_message_new_user))
         flex_message = FlexSendMessage(
             type = "template",
-            altText =  "this is a carousel template"
+            altText =  "this is a carousel template",
             contents=json.loads(bubble_message_new_user)
         )
     elif inputword in randomtrigger:
