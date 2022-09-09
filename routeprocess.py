@@ -10,7 +10,7 @@ from jsonstorage import *
 def backendprocess(inputword,source):
     randomtrigger = ['กินอะไรดี','กินไรดี', 'kinraidee', 'KinRaiDee', 'Kinraidee']
     example_message = ['คำตัวอย่าง','example']
-    if source == None:
+    if source.userId not in source.userIds:
         print(json.loads(bubble_message_new_user))
         flex_message = FlexSendMessage(
             type = "template",
