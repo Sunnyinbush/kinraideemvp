@@ -224,4 +224,3 @@ flex_message_json_template = {
     "flex": 0
   }
 }
-
