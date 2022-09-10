@@ -34,13 +34,13 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    quick_replies_message = backendprocess1(event.message.text)
+    message = backendprocess1(event.message.text)
     if flex_message != None:
-        line_bot_api.reply_message(event.reply_token, quick_replies_message)
+        line_bot_api.reply_message(event.reply_token, message)
     
-    flex_message = backendprocess2(event.message.text)
-    if flex_message != None:
-        line_bot_api.reply_message(event.reply_token, flex_message)
+    # flex_message = backendprocess2(event.message.text)
+    # if flex_message != None:
+    #     line_bot_api.reply_message(event.reply_token, flex_message)
 
 import os
 if __name__ == "__main__":

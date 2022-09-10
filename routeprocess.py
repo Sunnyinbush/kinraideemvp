@@ -16,15 +16,18 @@ def backendprocess1(inputword):
             text = "โปรดเลือกสถานที่ที่คุณต้องการจะไป",
             quick_reply = json.loads(QuickReply(quick_reply_temp)))
         )
+    
+    # backendprocess2(location)
     return quick_reply_message
-def backendprocess2(location):
-    randomtrigger_location = ['MBK','SAMYAN MITRTOWN', 'CHULA']
-    if location in randomtrigger_location:
-        file_to_access = f'restaurant_{location}.csv'
-        flex_message = randomprocess(file_to_access)
-    else:
-        flex_message = None
-    return flex_message
+
+# def backendprocess2(location):
+#     randomtrigger_location = ['MBK','SAMYAN MITRTOWN', 'CHULA']
+#     if location in randomtrigger_location:
+#         file_to_access = f'restaurant_{location}.csv'
+#         flex_message = randomprocess(file_to_access)
+#     else:
+#         flex_message = None
+#     return flex_message
 
 def randomprocess(location_based):
     payload = randomselectrestaurant(location_based)
