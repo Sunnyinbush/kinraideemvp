@@ -225,8 +225,7 @@ flex_message_json_template = {
   }
 }
 
-quick_reply_temp = '''
-{
+quick_reply_temp = {
   "quickReply": { 
     "items": [
       {
@@ -259,4 +258,3 @@ quick_reply_temp = '''
     ]
   }
 }
-'''
