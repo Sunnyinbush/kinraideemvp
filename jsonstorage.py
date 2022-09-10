@@ -252,7 +252,7 @@ quick_reply_temp = {
         "action": {
           "type": "message",
           "label": "SAMYAN MITRTOWN",
-          "text": "SAMYAN MITRTOWN"
+          "text": "SAMYAN"
         }
       }
     ]
