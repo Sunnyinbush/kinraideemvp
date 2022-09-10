@@ -36,7 +36,7 @@ def callback():
 def handle_message(event):
     message1 = backendprocess1(event.message.text)
     message2 = backendprocess2(event.postback.data)
-    if QuickReply or flex_message != None:
+    if message1 != None:
         line_bot_api.reply_message(event.reply_token, [message1])
 
     
