@@ -10,13 +10,13 @@ def backendprocess1(inputword):
     randomtrigger = ['กินอะไรดี','กินไรดี', 'kinraidee', 'KinRaiDee', 'Kinraidee']
     if inputword in randomtrigger:
         print(json.loads(quick_reply_temp))
-        quick_reply_message = QuickReplyButton(
-        text_message = TextSendMessage(
-            type =  "text", 
-            text = "โปรดเลือกสถานที่ที่คุณต้องการจะไป",
-            quick_reply = json.loads(QuickReply(quick_reply_temp)))
-        )
-    return quick_reply_message
+        response_message = [
+            QuickReplyButton(json.loads(QuickReply(quick_reply_temp))), 
+            TextSendMessage({
+            "type": "text",
+            "text": "โปรดเลือกสถานที่ที่คุณต้องการจะไป"})
+            ]
+    return response_message
 
 def backendprocess2(location):
     randomtrigger_location = ['MBK','SAMYAN', 'CHULA']
