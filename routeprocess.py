@@ -11,7 +11,7 @@ def backendprocess1(inputword):
     if inputword in randomtrigger:
         print(json.loads(quick_reply_temp))
         response_message = [
-            QuickReplyButton(json.loads(QuickReply(quick_reply_temp))), 
+            QuickReplyButton(json.loads(quick_reply_temp)), 
             TextSendMessage({
             "type": "text",
             "text": "โปรดเลือกสถานที่ที่คุณต้องการจะไป"})
