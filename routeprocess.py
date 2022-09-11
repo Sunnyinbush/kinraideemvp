@@ -19,7 +19,7 @@ def backendprocess1(inputword):
     return response_message
 
 def backendprocess2(location):
-    randomtrigger_location = ['MBK','SAMYAN', 'CHULA']
+    randomtrigger_location = ['MBK','SAMYAN','CHULA']
     if location in randomtrigger_location:
         file_to_access = 'restaurantlist.csv'
         flex_message = randomprocess(file_to_access)
