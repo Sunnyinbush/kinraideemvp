@@ -7,10 +7,15 @@ from linebot.models import *
 from jsonstorage import *
 
 def backendprocess(inputword):
-    randomtrigger = ['กินอะไรดี','กินไรดี', 'kinraidee', 'KinRaiDee', 'Kinraidee']
+    triggerdictionary = {
+        "สามย่าน" : "restaurantlist_samyan.csv",
+        "MBK" : 'restaurantlist_mbk.csv',
+        "สยาม" : 'restaurantlist_siam.csv',
+    }
     example_message = ['คำตัวอย่าง','example']
-    if inputword in randomtrigger:
-        flex_message = randomprocess()
+    inputword = inputword.split(" ")
+    if inputword[1] in triggerdictionary:
+        flex_message = randomprocess(triggerdictionary[inputword[1]])
     elif inputword in example_message:
         print(json.loads(flex_message_json_example))
         flex_message = FlexSendMessage(
@@ -22,8 +27,8 @@ def backendprocess(inputword):
         flex_message = None
     return flex_message
 
-def randomprocess():
-    payload = randomselectrestaurant()
+def randomprocess(location):
+    payload = randomselectrestaurant(location)
     json_payload = json.dumps(payload)
     print(json.loads(json_payload))
     flex_message = FlexSendMessage(
@@ -33,9 +38,9 @@ def randomprocess():
     )
     return flex_message
 
-def randomselectrestaurant():
+def randomselectrestaurant(location):
     #open csv file as list
-    randomselectrestaurant.var = open("restaurantlist.csv", "r")
+    randomselectrestaurant.var = open(location, "r")
     # with open('restaurantlist.csv', 'r') as datafile:
     data = csv.reader(randomselectrestaurant.var, delimiter=';')
     header = next(data)
@@ -64,4 +69,4 @@ def convertjsontostring(restaurant):
         final_json['footer']['contents'][1]['action']['uri'] = restaurant[5].strip()
     return final_json
 
-backendprocess("Kinraidee")
+backendprocess("กินอะไรดีที่ MBK")
