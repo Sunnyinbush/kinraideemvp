@@ -36,6 +36,7 @@ def callback():
 def handle_message(event):
     flex_message = backendrouter(event.message.text)
     if flex_message != None:
+        print("Flex Message Sent!")
         line_bot_api.reply_message(event.reply_token, flex_message)
     
 

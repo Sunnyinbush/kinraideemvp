@@ -18,7 +18,6 @@ def backendrouter(textinput):
         if input_word_list[1] in triggerdictionary:
             flex_message = randomprocess(triggerdictionary[input_word_list[1]])
         elif input_word_list[1] in example_message:
-            print(json.loads(flex_message_json_example))
             flex_message = FlexSendMessage(
                 type = 'flex',
                 alt_text='CU iCanteen',
