@@ -200,7 +200,7 @@ flex_message_json_template = {
         "height": "sm",
         "action": {
           "type": "uri",
-          "label": "Navigate",
+          "label": "นำทางฉันหน่อย",
           "uri": "https://linecorp.com"
         }
       },
@@ -210,7 +210,7 @@ flex_message_json_template = {
         "height": "sm",
         "action": {
           "type": "uri",
-          "label": "Menu Website",
+          "label": "ดูเมนูอาหาร",
           "uri": "https://linecorp.com"
         }
       },
