@@ -21,10 +21,9 @@ def backendrouter(textinput):
             flex_message = FlexSendMessage(
                 type = 'flex',
                 alt_text='CU iCanteen',
-                contents=json.loads(flex_message_json_example)
-    )
-        else:
-            flex_message = None
+                contents=json.loads(flex_message_json_example))
+    else:
+        flex_message = None
     return flex_message
 
 def randomprocess(location):
