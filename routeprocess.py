@@ -8,9 +8,9 @@ from jsonstorage import *
 
 def backendrouter(textinput):
     triggerdictionary = {
-        "สามย่าน" : "restaurantlist_samyan.csv",
+        "สามย่านมิตรทาวน์" : "restaurantlist_samyanmidtown.csv",
         "MBK" : 'restaurantlist_mbk.csv',
-        "สยาม" : 'restaurantlist_siam.csv',
+        "สยามพารากอน" : 'restaurantlist_siamparagon.csv',
     }
     example_message = ['คำตัวอย่าง','example']
     input_word_list = textinput.split(" ")
