@@ -7,24 +7,32 @@ from linebot.models import *
 from jsonstorage import *
 
 def backendrouter(textinput):
+    input_word_list = textinput.split(" ")
+    if input_word_list[0] == "กินอะไรดี":
+        text_message = TextSendMessage(
+            text = "เลือกสถานที่ที่อยากไปกินกันเลย",
+            quick_reply= QuickReply(items=[QuickReplyButton(json.loads(quick_reply_message))])
+        )
+    else:
+        text_message = None
+    return text_message
+
+def quickreply_backend(textinput):
     triggerdictionary = {
         "สามย่านมิตรทาวน์" : "restaurantlist_samyanmidtown.csv",
         "MBK" : 'restaurantlist_mbk.csv',
         "สยามพารากอน" : 'restaurantlist_siamparagon.csv',
     }
-    example_message = ['คำตัวอย่าง','example']
     input_word_list = textinput.split(" ")
-    if input_word_list[0] == "กินอะไรดีที่":
-        if input_word_list[1] in triggerdictionary:
+    for location in triggerdictionary.keys():
+        if input_word_list[0] == location:
             flex_message = randomprocess(triggerdictionary[input_word_list[1]])
-        elif input_word_list[1] in example_message:
-            flex_message = FlexSendMessage(
-                type = 'flex',
-                alt_text='CU iCanteen',
-                contents=json.loads(flex_message_json_example))
-    else:
-        flex_message = None
+        else: flex_message = None
     return flex_message
+
+
+
+
 
 def randomprocess(location):
     randomprocess.var = open(location, "r")
@@ -60,3 +68,25 @@ def convertjsontostring(restaurant):
     if len(restaurant) > 5:
         final_json['footer']['contents'][1]['action']['uri'] = restaurant[5].strip()
     return final_json
+
+
+
+# def backendrouter(textinput):
+#     triggerdictionary = {
+#         "สามย่านมิตรทาวน์" : "restaurantlist_samyanmidtown.csv",
+#         "MBK" : 'restaurantlist_mbk.csv',
+#         "สยามพารากอน" : 'restaurantlist_siamparagon.csv',
+#     }
+    # example_message = ['คำตัวอย่าง','example']
+    # input_word_list = textinput.split(" ")
+    # if input_word_list[0] == "กินอะไรดีที่":
+    #     if input_word_list[1] in triggerdictionary:
+    #         flex_message = randomprocess(triggerdictionary[input_word_list[1]])
+    #     elif input_word_list[1] in example_message:
+    #         flex_message = FlexSendMessage(
+    #             type = 'flex',
+    #             alt_text='CU iCanteen',
+    #             contents=json.loads(flex_message_json_example))
+    # else:
+    #     flex_message = None
+    # return flex_message

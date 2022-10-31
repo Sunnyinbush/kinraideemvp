@@ -13,9 +13,9 @@ from routeprocess import *
 app = Flask(__name__)
 
 # Channel Access Token
-line_bot_api = LineBotApi('reGGOrpOZ5RafgV+VqQHiULKInLdOq4gTKa3npfHWNzorpMn/V85a7axufVRJzmHvhxlGAuJ9wAqI6NMGIHjdL1yMqoFkR3JwoAHrTbNnqiI91pFvfp/AWgnOQCMk2vWEBvbGLgT4POpr+nZOye9ewdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('vqiiCUBQCIZS0AJwgAunwn47nyFlDemUcsx9fr7SPXIQmXIlbg17N5hm0z+zo1Kcgges2TvHcKRoDuKBFiF0rAHuqE7TBQNYFlk1Q+Mkq2UyymeyWA249Abektv8lnES71cNhVO1LdOQiqsX/kx5ywdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
-handler = WebhookHandler('9c727591b56bf0a08a4a404605a97f2c')
+handler = WebhookHandler('ca2d11dc313463c0420dce1998398dfa')
 
 # callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -32,13 +32,22 @@ def callback():
         abort(400)
     return 'OK'
 
+#user responds "กินอะไรดี"
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    flex_message = backendrouter(event.message.text)
-    if flex_message != None:
-        print("Flex Message Sent!")
+    text_message = backendrouter(event.message.text)
+    if text_message != None:
+        print("Text Message Recieved! Sending Quick Reply Message!")
+    line_bot_api.reply_message(event.reply_token, QuickReply)
+
+#quick reply
+@handler.add(PostbackAction, message= Postback)
+def handle_message(event):
+    quick_reply_message = quickreply_backend(event.data.displayText)
+    if quick_reply_message != None:
+        print("We have received user reply")
         line_bot_api.reply_message(event.reply_token, flex_message)
-    
+
 
 import os
 if __name__ == "__main__":

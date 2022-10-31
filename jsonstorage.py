@@ -224,3 +224,33 @@ flex_message_json_template = {
     "flex": 0
   }
 }
+
+quick_reply_message = {
+      {
+        "type": "action", 
+        "imageUrl": "https://cdn-images.prod.thinkofliving.com/wp-content/uploads/1/2019/08/08111420/SAMYAN-MITRTOWN-%E0%B8%AA%E0%B8%B2%E0%B8%A1%E0%B8%A2%E0%B9%88%E0%B8%B2%E0%B8%99%E0%B8%A1%E0%B8%B4%E0%B8%95%E0%B8%A3%E0%B8%97%E0%B8%B2%E0%B8%A7%E0%B8%99%E0%B9%8C_5-Resize.jpg",
+        "action": {
+          "type": "message",
+          "label": "สามย่านมิตรทาวน์",
+          "text": "สามย่านมิตรทาวน์"
+        }
+      },
+      {
+        "type": "action",
+        "imageUrl": "https://mbk-center.co.th/images/upload/blog/00137/photo-137-20220121173215.jpg",
+        "action": {
+          "type": "message",
+          "label": "MBK",
+          "text": "MBK"
+        }
+      },
+      {
+        "type": "action",
+        "imageUrl": "https://www.siamparagon.co.th/public/images/aboutus/SPD.jpg",
+        "action": {
+          "type": "message",
+          "label": "สยามพารากอน",
+          "text": "สยามพารากอน"
+        }
+      }
+}
