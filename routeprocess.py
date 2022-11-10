@@ -44,12 +44,12 @@ def randomprocess(location):
     post_data = convertjsontostring(randomrestaurant)
     randomprocess.var.close()
     json_payload = json.dumps(post_data)
-    flex_message = FlexSendMessage(
-        type = 'flex',
-        alt_text=post_data["body"]["contents"][0]["text"],
-        contents=json.loads(json_payload)
-    )
-    return flex_message
+    # flex_message = FlexSendMessage(
+    #     type = 'flex',
+    #     alt_text=post_data["body"]["contents"][0]["text"],
+    #     contents=json.loads(json_payload)
+    # )
+    # return flex_message
 
 def convertjsontostring(restaurant):
     final_json = flex_message_json_template
