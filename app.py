@@ -38,7 +38,7 @@ def handle_message(event):
     text_message = backendrouter(event.message.text)
     if text_message != None:
         print("Text Message Recieved! Sending Quick Reply Message!")
-    line_bot_api.reply_message(event.reply_token, text_message)
+    line_bot_api.send_messages.QuickReply(event.reply_token, text_message)
 
 #quick reply
 @handler.add(PostbackAction, message= Postback)

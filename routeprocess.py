@@ -9,13 +9,10 @@ from jsonstorage import *
 def backendrouter(textinput):
     input_word_list = textinput.split(" ")
     if input_word_list[0] == "กินอะไรดี":
-        text_message = TextSendMessage(
-            text = "เลือกสถานที่ที่อยากไปกินกันเลย",
-            quick_reply= QuickReply(items=[QuickReplyButton(json.loads(quick_reply_message))])
-        )
+        quick_reply= QuickReply(items=[QuickReplyButton(json.loads(quick_reply_message))])
     else:
-        text_message = None
-    return text_message
+        quick_reply = None
+    return quick_reply
 
 def quickreply_backend(textinput):
     triggerdictionary = {
