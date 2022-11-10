@@ -9,7 +9,8 @@ from jsonstorage import *
 def backendrouter(textinput):
     input_word_list = textinput.split(" ")
     if input_word_list[0] == "กินอะไรดี":
-        quick_reply= QuickReply(items=[QuickReplyButton(json.loads(quick_reply_message))])
+        json_quickReply_payload = json.dumps(quick_reply_message)
+        quick_reply= QuickReply(items=[QuickReplyButton(json.loads(json_quickReply_payload))])
     else:
         quick_reply = None
     return quick_reply
