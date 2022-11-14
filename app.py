@@ -6,7 +6,6 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-from oldrouteprocess import *
 
 app = Flask(__name__)
 
@@ -28,6 +27,22 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    if flex_message != None:
-        print("Flex Message Sent!")
-        line_bot_api.reply_message(event.reply_token, reply_message)
+    if event.message.text = "test":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="test"))
+    pass
+
+@handler.add(JoinEvent)
+def handle_join(event):
+    welcomemessage = "Hello"
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=welcomemessage))
+
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    quick_reply = quick_reply_process(event.postback.data)
+    if quick_reply != None:
+        line_bot_api.reply_message(event.reply_token, quick_reply)
+
+import os
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
