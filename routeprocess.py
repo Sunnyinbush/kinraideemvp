@@ -26,14 +26,14 @@ def backendrouter(textinput):
         flex_message = None
     return flex_message
 
-def randomprocess(csv, locationname):
-    randomprocess.var = open(csv, "r")
+def randomprocess(csvfile, location):
+    randomprocess.var = open(csvfile, "r")
     data = csv.reader(randomprocess.var, delimiter=';')
     header = next(data)
     table = [row for row in data]
     choice = random.choice(table)
     randomrestaurant = choice[0].split(',')
-    post_data = convertjsontostring(randomrestaurant, locationname)
+    post_data = convertjsontostring(randomrestaurant, location)
     randomprocess.var.close()
     json_payload = json.dumps(post_data)
     flex_message = FlexSendMessage(
@@ -56,7 +56,7 @@ def convertjsontostring(restaurant, location):
     #navigate button
     if len(restaurant) > 4:
         final_json['footer']['contents'][0]['action']['uri'] = restaurant[4].strip()
-    #select again button
+    #menu button
     if len(restaurant) > 5:
-        final_json['footer']['contents'][1]['action']['text'] = "กินอะไรดีที่ "+ location
+        final_json['footer']['contents'][1]['action']['text'] = "กินอะไรดีที่ "+ 
     return final_json
