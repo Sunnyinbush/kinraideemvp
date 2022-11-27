@@ -57,6 +57,5 @@ def convertjsontostring(restaurant, location):
     if len(restaurant) > 4:
         final_json['footer']['contents'][0]['action']['uri'] = restaurant[4].strip()
     #menu button
-    if len(restaurant) > 5:
-        final_json['footer']['contents'][1]['action']['text'] = "กินอะไรดีที่ "+ location
+    final_json['footer']['contents'][1]['action']['text'] = "กินอะไรดีที่ "+ location
     return final_json
