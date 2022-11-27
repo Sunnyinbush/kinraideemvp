@@ -16,7 +16,7 @@ def backendrouter(textinput):
     input_word_list = textinput.split(" ")
     if input_word_list[0] == "กินอะไรดีที่":
         if input_word_list[1] in triggerdictionary:
-            flex_message = randomprocess(triggerdictionary[input_word_list[1]])
+            flex_message = randomprocess(triggerdictionary[input_word_list[1]], input_word_list[1])
         elif input_word_list[1] in example_message:
             flex_message = FlexSendMessage(
                 type = 'flex',
@@ -26,14 +26,14 @@ def backendrouter(textinput):
         flex_message = None
     return flex_message
 
-def randomprocess(location):
-    randomprocess.var = open(location, "r")
+def randomprocess(csv, locationname):
+    randomprocess.var = open(csv, "r")
     data = csv.reader(randomprocess.var, delimiter=';')
     header = next(data)
     table = [row for row in data]
     choice = random.choice(table)
     randomrestaurant = choice[0].split(',')
-    post_data = convertjsontostring(randomrestaurant)
+    post_data = convertjsontostring(randomrestaurant, locationname)
     randomprocess.var.close()
     json_payload = json.dumps(post_data)
     flex_message = FlexSendMessage(
@@ -43,7 +43,7 @@ def randomprocess(location):
     )
     return flex_message
 
-def convertjsontostring(restaurant):
+def convertjsontostring(restaurant, location):
     final_json = flex_message_json_template
     #photo url
     final_json["hero"]["url"] = restaurant[0].strip()
@@ -56,7 +56,7 @@ def convertjsontostring(restaurant):
     #navigate button
     if len(restaurant) > 4:
         final_json['footer']['contents'][0]['action']['uri'] = restaurant[4].strip()
-    #menu button
+    #select again button
     if len(restaurant) > 5:
-        final_json['footer']['contents'][1]['action']['uri'] = restaurant[5].strip()
+        final_json['footer']['contents'][1]['action']['text'] = "กินอะไรดีที่ "+ location
     return final_json

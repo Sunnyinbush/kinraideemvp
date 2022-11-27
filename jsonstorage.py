@@ -96,9 +96,9 @@ flex_message_json_example = """
         "style": "link",
         "height": "sm",
         "action": {
-          "type": "uri",
-          "label": "Menu Website",
-          "uri": "https://linecorp.com"
+          "type": "message",
+          "label": "สุ่มอาหารใหม่",
+          "text": "กินอะไรดี"
         }
       },
       {
@@ -209,9 +209,9 @@ flex_message_json_template = {
         "style": "link",
         "height": "sm",
         "action": {
-          "type": "uri",
-          "label": "ดูเมนูอาหาร",
-          "uri": "https://linecorp.com"
+          "type": "message",
+          "label": "สุ่มร้านใหม่",
+          "text": "กินอะไรดี"
         }
       },
       {
