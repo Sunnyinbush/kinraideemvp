@@ -31,7 +31,7 @@ def backendrouter(textinput):
                 alt_text='CU iCanteen',
                 contents=json.loads(flex_message_json_example))
         else:
-            None
+            flex_message = None
     else:
         flex_message = None
     return flex_message
