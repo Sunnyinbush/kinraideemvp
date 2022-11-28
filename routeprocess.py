@@ -8,9 +8,17 @@ from jsonstorage import *
 
 def backendrouter(textinput):
     triggerdictionary = {
-        "สามย่านมิตรทาวน์" : "restaurantlist_samyanmidtown.csv",
         "MBK" : 'restaurantlist_mbk.csv',
         "สยามพารากอน" : 'restaurantlist_siamparagon.csv',
+        "iCanteen" :'CSV-Chula - Icanteen.csv',
+        "ตึกจุลจักรพงษ์" : 'CSV-Chula - ตึกจุล.csv',
+        "โรงอาหารอักษร" : 'CSV-Chula - คณะอักษร.csv',
+        "โรงอาหารรัฐศาสตร์" : 'CSV-Chula - โรงอาหารรัฐศาสตร์.csv',
+        "ตึกมหิตลาธิเบศร" : 'CSV-Chula - ตึกมหิต.csv',
+        "คณะครุศาสตร์" : 'CSV-Chula - โรงอาหารครุศาสตร์.csv',
+        "โรงอาหารหอใน" : 'CSV-Chula - หอพักนิสิตจุฬา.csv',
+        "สปอร์ตคอมเพล็กซ์" : 'CSV-Chula - Cu Sport Complex.csv',
+        "โรงอาหารจุฬาพัฒน์14" : 'CSV-Chula - จุฬสพัฒน์14.csv',
     }
     example_message = ['คำตัวอย่าง','example']
     input_word_list = textinput.split(" ")
