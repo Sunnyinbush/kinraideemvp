@@ -17,7 +17,7 @@ def backendrouter(textinput):
         "ตึกมหิตลาธิเบศร" : 'CSV-Chula - ตึกมหิต.csv',
         "คณะครุศาสตร์" : 'CSV-Chula - โรงอาหารครุศาสตร์.csv',
         "โรงอาหารหอใน" : 'CSV-Chula - หอพักนิสิตจุฬา.csv',
-        "สปอร์ตคอมเพล็กซ์" : 'CSV-Chula - Cu Sport Complex.csv',
+        "สปอร์ตคอมเพล็กซ์" : 'CSV-Chula - Cu_Sport_Complex.csv',
         "จุฬาพัฒน์ 14" : 'CSV-Chula - จุฬสพัฒน์14.csv',
     }
     example_message = ['คำตัวอย่าง','example']
