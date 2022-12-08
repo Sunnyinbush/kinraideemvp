@@ -17,15 +17,11 @@ line_bot_api = LineBotApi('reGGOrpOZ5RafgV+VqQHiULKInLdOq4gTKa3npfHWNzorpMn/V85a
 # Channel Secret
 handler = WebhookHandler('9c727591b56bf0a08a4a404605a97f2c')
 
-# callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
-    # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
-    # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
-    # handle webhook body
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
