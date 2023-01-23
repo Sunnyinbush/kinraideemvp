@@ -24,7 +24,9 @@ def backendrouter(textinput):
     input_word_list = textinput.split(" ")
     if input_word_list[0] == "กินอะไรดีที่":
         if input_word_list[1] in triggerdictionary:
+            print(triggerdictionary[input_word_list])
             flex_message = randomprocess(triggerdictionary[input_word_list[1]], input_word_list[1])
+            print(flex_message)
         elif input_word_list[1] in example_message:
             flex_message = FlexSendMessage(
                 type = 'flex',
