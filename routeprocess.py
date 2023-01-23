@@ -18,7 +18,7 @@ def backendrouter(textinput):
         "คณะครุศาสตร์" : 'CSV-Chula - โรงอาหารครุศาสตร์.csv',
         "โรงอาหารหอใน" : 'CSV-Chula - หอพักนิสิตจุฬา.csv',
         "สปอร์ตคอมเพล็กซ์" : 'CSV-Chula - Cu_Sport_Complex.csv',
-        "จุฬาพัฒน์ 14" : 'CSV-Chula - จุฬสพัฒน์14.csv',
+        "จุฬาพัฒน์" : 'CSV-Chula - จุฬสพัฒน์.csv',
     }
     example_message = ['คำตัวอย่าง','example']
     input_word_list = textinput.split(" ")
