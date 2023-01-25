@@ -10,6 +10,7 @@ app.use(express.urlencoded({
 }))
 
 app.get("/", (req, res) => {
+  res.send("Welcome to Line Bot")
   res.sendStatus(200)
 })
 
